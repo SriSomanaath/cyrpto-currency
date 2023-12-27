@@ -5,6 +5,7 @@ import { useState } from "react";
 const Sidebar = () => {
 
     const [open, setOpen] = useState(true);
+    
     const Menus = [
       { title: "Dashboard", src: "Chart_fill" },
       { title: "Inbox", src: "Chat" },
@@ -21,7 +22,7 @@ const Sidebar = () => {
     <div
       className={` ${
         open ? "w-72" : "w-20 "
-      } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
+      } bg-major1 h-screen p-5  pt-8 relative duration-300`}
     >
       <img
         src="./src/assets/control.png"
