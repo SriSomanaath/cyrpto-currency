@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <div className="bg-major1 text-3xl font-bold text-major2 p-3">Tech Arion</div>
   )
 }
 
