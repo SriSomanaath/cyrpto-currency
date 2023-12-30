@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
-import provider from '@/Redux/Provider'
+import {ReduxProvider} from '@/Redux/ReduxProvider'
 import './globals.css'
 import Sidebar from './../components/Sidebar';
 
@@ -20,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <provider>
-        <Navbar/>
-        <Sidebar/>
-        {children}
-        </provider>
+        <ReduxProvider>
+            <Navbar/>
+            <div className="flex">
+            <Sidebar/>
+            {children}
+            </div>
+        </ReduxProvider>
         </body>
     </html>
   )
