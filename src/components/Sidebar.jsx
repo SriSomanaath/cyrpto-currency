@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     
     const Menus = [
       { title: "Home", src: "Chart_fill" },

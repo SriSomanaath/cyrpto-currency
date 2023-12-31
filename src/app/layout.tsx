@@ -4,6 +4,10 @@ import Navbar from '@/components/Navbar'
 import {ReduxProvider} from '@/Redux/ReduxProvider'
 import './globals.css'
 import Sidebar from './../components/Sidebar';
+import Footer from './../components/Footer';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import TanstackProvider from './../ReactProvider/reactProvider';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,11 +25,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>
+        <TanstackProvider>
             <Navbar/>
             <div className="flex">
             <Sidebar/>
             {children}
             </div>
+            <Footer />
+            </TanstackProvider>
         </ReduxProvider>
         </body>
     </html>
