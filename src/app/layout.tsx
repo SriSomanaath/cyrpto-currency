@@ -29,7 +29,7 @@ export default function RootLayout({
             <Navbar/>
             <div className="flex">
             <Sidebar/>
-            {children}
+            <div className="pl-18 max-sm:pl-5 sm:pl-16 md:p-10 ">{children}</div>
             </div>
             <Footer />
             </TanstackProvider>

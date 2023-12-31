@@ -13,10 +13,10 @@ const Footer = () => {
         Empowering lives through innovative software solutions, tackling complex challenges with simplicity.
         </p>
         <div className='flex items-center gap-5 mt-8'>
-          {socialMedia.map((icon) => (
+        {socialMedia.map((icon, index) => (
             <div
               className='flex justify-center items-center w-12 h-12 bg-white rounded-full'
-              key={icon.alt}
+              key={`${icon.alt}-${index}`}  // Use a combination for a unique key
             >
               <img src={icon.src} alt={icon.alt} width={24} height={24} />
             </div>
@@ -25,23 +25,23 @@ const Footer = () => {
       </div>
 
       <div className='flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap'>
-        {footerLinks.map((section) => (
-          <div key={section.title}>
-            <h4 className='font-montserrat text-2xl leading-normal font-medium mb-6 text-white'>
-              {section.title}
-            </h4>
-            <ul>
-              {section.links.map((link) => (
-                <li
-                  className='mt-3 font-montserrat text-base leading-normal text-white hover:text-slate-gray'
-                  key={link.name}
-                >
-                  <a href={link.link}>{link.name}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      {footerLinks.map((section, sectionIndex) => (
+      <div key={sectionIndex}>
+        <h4 className='font-montserrat text-2xl leading-normal font-medium mb-6 text-white'>
+          {section.title}
+        </h4>
+        <ul>
+          {section.links.map((link, linkIndex) => (
+                        <li
+                          className='mt-3 font-montserrat text-base leading-normal text-white hover:text-slate-gray'
+                          key={`${link.name}-${linkIndex}`}  // Use a combination for a unique key
+                        >
+                          <a href={link.link}>{link.name}</a>
+                        </li>
+                      ))}
+                </ul>
+              </div>
+            ))}
       </div>
     </div>
 

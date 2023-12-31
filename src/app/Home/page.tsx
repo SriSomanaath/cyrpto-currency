@@ -1,6 +1,7 @@
 "use client";
 
 import { useGetCryptosQuery } from "@/Services/CryptoApi";
+import Cyrptocurriences from ".././Cyrptocurriences/page";
 import { useState, useEffect } from 'react';
 import millify from 'millify';
 
@@ -50,6 +51,11 @@ const Home = () => {
           <p>Loading...</p>
         )}
       </div>
+      <div className="flex justify-between p-6 max-sm:p-2">
+      <h1 className="text-2xl font-bold">Top 10 Cyrptocurriences in the world</h1>
+      <h2 className="text-black p-2 rounded-lg font-bold text-xl max-sm:text-sm sm:text-md md:text-md bg-major3">Show more</h2>
+      </div>
+      <Cyrptocurriences />
     </div>
   );
 }
