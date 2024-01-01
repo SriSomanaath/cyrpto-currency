@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react';
 import { useGetCryptosQuery } from '@/Services/CryptoApi';
 import millify from 'millify';
 
-const Cryptocurrencies = ({ simplified = false }) => {
+interface CryptocurrenciesProps {
+  simplified?: boolean;
+}
+
+const Cryptocurrencies: React.FC<CryptocurrenciesProps> = ({ simplified = false }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
@@ -12,7 +16,6 @@ const Cryptocurrencies = ({ simplified = false }) => {
   useEffect(() => {
     setCryptos(cryptoList?.data?.coins);
   }, [cryptoList?.data?.coins]);
-
 
   return (
     <div className="m-10">
@@ -23,7 +26,7 @@ const Cryptocurrencies = ({ simplified = false }) => {
               <h5 className="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 {currency.name}
               </h5>
-              <img className="w-8 h-8" src={currency.iconUrl} />
+              <img className="w-8 h-8" src={currency.iconUrl} alt={currency.name} />
             </div>
             <p className="mt-16">Price: {millify(currency.price)}</p>
             <p>Market Cap: {millify(currency.marketCap)}</p>
