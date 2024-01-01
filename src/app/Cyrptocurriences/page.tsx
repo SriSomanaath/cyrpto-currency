@@ -4,15 +4,16 @@ import { useState, useEffect } from 'react';
 import { useGetCryptosQuery } from '@/Services/CryptoApi';
 import millify from 'millify';
 
-const Cyrptocurriences = () => {
-  const { data: cryptoList, isFetching } = useGetCryptosQuery();
+const Cyrptocurriences = ({ simplified = false }) => {
+  const count = simplified ? 10 : 100;
+  const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
 
   useEffect(() => {
     setCryptos(cryptoList?.data?.coins);
   }, [cryptoList?.data?.coins]);
 
-  console.log("data crypto:", cryptos);
+  // if (isFetching) return <Loader />;
 
   return (
     <div className="m-10">
@@ -32,8 +33,7 @@ const Cyrptocurriences = () => {
         ))}
       </div>
     </div>
-  );
-  
+  ); 
 }
 
 export default Cyrptocurriences;

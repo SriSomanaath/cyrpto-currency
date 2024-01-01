@@ -3,11 +3,13 @@
 import { useGetCryptosQuery } from "@/Services/CryptoApi";
 import Cyrptocurriences from ".././Cyrptocurriences/page";
 import { useState, useEffect } from 'react';
+import Link from 'next/link'
 import millify from 'millify';
 
 const Home = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const [globalStats, setGlobalStats] = useState(null);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     // Update globalStats when data is available
@@ -51,11 +53,13 @@ const Home = () => {
           <p>Loading...</p>
         )}
       </div>
-      <div className="flex justify-between p-6 max-sm:p-2">
-      <h1 className="text-2xl font-bold">Top 10 Cyrptocurriences in the world</h1>
-      <h2 className="text-black p-2 rounded-lg font-bold text-xl max-sm:text-sm sm:text-md md:text-md bg-major3">Show more</h2>
+          <div className="flex justify-between p-6 max-sm:p-2">
+            <h1 className="text-2xl font-bold">Top 10 Cyrptocurriences in the world</h1>
+            <Link className="text-black p-2 rounded-lg font-bold text-xl max-sm:text-sm sm:text-md md:text-md bg-major3" href="/Cyrptocurriences">Show more</Link>
+          <div>
+        </div>
       </div>
-      <Cyrptocurriences />
+      <Cyrptocurriences simplified={true}/>
     </div>
   );
 }
