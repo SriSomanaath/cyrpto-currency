@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useGetCryptosQuery } from '@/Services/CryptoApi';
 import millify from 'millify';
 
-const Cryptocurrencies = ({simplified}) => {
+const Cryptocurrencies = ({simplified}:any) => {
   const count = simplified ? 10 : 100;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
