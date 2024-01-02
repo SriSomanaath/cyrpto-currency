@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react';
 import { useGetCryptosQuery } from '@/Services/CryptoApi';
 import millify from 'millify';
 
-const Cryptocurrencies = ({simplified}:any) => {
+interface CryptocurrenciesProps {
+  simplified: any; // Replace 'any' with the actual type you expect for the 'simplified' prop
+}
+
+const Cryptocurrencies: React.FC<CryptocurrenciesProps> = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
