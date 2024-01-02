@@ -5,7 +5,7 @@ import { useGetCryptosQuery } from '@/Services/CryptoApi';
 import millify from 'millify';
 
 interface CryptocurrenciesProps {
-  simplified: any; // Replace 'any' with the actual type you expect for the 'simplified' prop
+  simplified: boolean; // Update 'any' to the actual type of 'simplified'
 }
 
 const Cryptocurrencies: React.FC<CryptocurrenciesProps> = ({ simplified }) => {
@@ -26,7 +26,7 @@ const Cryptocurrencies: React.FC<CryptocurrenciesProps> = ({ simplified }) => {
               <h5 className="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 {currency.name}
               </h5>
-              <img className="w-8 h-8" src={currency.iconUrl} />
+              <img className="w-8 h-8" src={currency.iconUrl} alt={currency.name} />
             </div>
             <p className="mt-16">Price: {millify(currency.price)}</p>
             <p>Market Cap: {millify(currency.marketCap)}</p>
