@@ -9,7 +9,7 @@ const cryptoApiHeaders = {
 
 // 5189f7637emsh1c21f09730c9945p113d9ejsn4da5a03c0b69
 
-const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
+const createRequest = (url:any) => ({ url, headers: cryptoApiHeaders });
 
 export const CryptoApi = createApi({
   reducerPath: 'CryptoApi',
