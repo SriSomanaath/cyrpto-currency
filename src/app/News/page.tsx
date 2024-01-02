@@ -24,7 +24,7 @@ const Page = () => {
   return (
     <div className="bg-gray-300 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {isLoading && <p>Loading...</p>}
-      {data?.data.map((item, index) => (
+      {data?.data.map((item:any, index:any) => (
         <div key={index} className="flex flex-col bg-white p-4 rounded-lg">
           <img src={item['thumbnail']} className="w-full h-40 object-cover mb-4" alt={item['title']} />
           <h1 className="text-black text-xl font-bold mb-2">{item['title']}</h1>
