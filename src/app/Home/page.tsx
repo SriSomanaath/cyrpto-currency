@@ -6,19 +6,29 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link'
 import millify from 'millify';
 
+interface CryptoData {
+  data: {
+    stats: {
+      total: number;
+      total24hVolume: number;
+      totalMarkets: number;
+      totalMarketCap: number;
+    };
+  };
+}
+
 const Home = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
-  const [globalStats, setGlobalStats] = useState(null);
+  const [globalStats, setGlobalStats] = useState<CryptoData | null>(null);
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    // Update globalStats when data is available
     if (data && data.data && data.data.stats) {
-      setGlobalStats(data.data.stats);
+      setGlobalStats(data as CryptoData); // Type assertion to CryptoData
     }
   }, [data]);
 
-  console.log("dataaaaaaaaaaaaaaa", globalStats);
+  console.log("data", globalStats);
 
   return (
     <div>
