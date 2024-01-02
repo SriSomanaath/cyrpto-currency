@@ -16,7 +16,7 @@ const Cryptocurrencies = ({simplified}:any) => {
   return (
     <div className="m-10">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5 lg:mt-10 lg:mb-10">
-      {cryptos && cryptos.map((currency:any, index) => (
+      {cryptos && cryptos.map((currency:any, index:any) => (
           <div key={currency.id || index} className="relative w-100 h-100 bg-gray-300 p-8 rounded-lg mb-4">
             <div className="flex flex-row justify-between items-start absolute top-0 left-0 right-0 p-4">
               <h5 className="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
