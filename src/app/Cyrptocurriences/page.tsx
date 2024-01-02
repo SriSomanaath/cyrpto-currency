@@ -4,15 +4,14 @@ import { useState, useEffect } from 'react';
 import { useGetCryptosQuery } from '@/Services/CryptoApi';
 import millify from 'millify';
 
-const Cryptocurrencies = ({ simplified = false }) => {
-  const count = simplified ? 10 : 100;
+const Cryptocurrencies = ({simplified = 100}) => {
+  const count = simplified;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
 
   useEffect(() => {
     setCryptos(cryptoList?.data?.coins);
   }, [cryptoList?.data?.coins]);
-
 
   return (
     <div className="m-10">

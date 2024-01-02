@@ -59,7 +59,7 @@ const Home = () => {
           <div>
         </div>
       </div>
-      <Cyrptocurriences simplified={true}/>
+      <Cyrptocurriences simplified={10} />
     </div>
   );
 }
