@@ -22,7 +22,7 @@ const Page = () => {
   console.log("data of bing:", data);
 
   return (
-    <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-10">
+    <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-20 max-sm:p-10 sm:p-10 md:p-14">
       {isLoading && <p>Loading...</p>}
       {data?.data.map((item: any, index: any) => (
         <div key={index} className="flex flex-col bg-gray-400 p-4 rounded-lg flex">

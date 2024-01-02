@@ -14,7 +14,7 @@ const Cryptocurrencies = ({simplified}:any) => {
   }, [cryptoList?.data?.coins]);
 
   return (
-    <div className="pl-20">
+    <div className="p-20 max-sm:p-10 sm:p-10 md:p-14">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5 lg:mt-10 lg:mb-10">
       {cryptos && cryptos.map((currency:any, index:any) => (
           <div key={currency.id || index} className="relative w-100 h-100 bg-gray-300 p-8 rounded-lg mb-4">

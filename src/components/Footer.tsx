@@ -4,7 +4,7 @@ import {footerLinks, socialMedia} from "@/Services/Constants";
 
 const Footer = () => {
   return (
-    <footer className='l bg-black max-sm:p-6 p-10 max-sm:ml-20 ml-20'>
+    <footer className='l bg-black max-sm:p-6 p-10'>
     <div className='flex justify-between items-start gap-20 flex-wrap max-lg:flex-col'>
       <div className='flex flex-col items-start'>
         <h1 className="text-white text-5xl max-sm:text-4xl font-bold">TechArion.com</h1>

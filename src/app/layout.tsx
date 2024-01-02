@@ -28,10 +28,12 @@ export default function RootLayout({
         <TanstackProvider>
             <Navbar/>
             <div className="flex">
-            <Sidebar/>
-            <div className="pl-18 max-sm:pl-5 sm:pl-16 md:p-10 ">{children}</div>
-            </div>
-            <Footer />
+                <Sidebar />
+                <div className="flex-grow">
+                  {children}
+                  <Footer />
+                </div>
+              </div>
             </TanstackProvider>
         </ReduxProvider>
         </body>
