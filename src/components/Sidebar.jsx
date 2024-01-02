@@ -1,11 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 
     const [open, setOpen] = useState(false);
+    const [isFixed, setIsFixed] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+        setIsFixed(scrollY > 0); 
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+  
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     
     const Menus = [
       { title: "Home", src: "Chart_fill" },
@@ -15,7 +33,7 @@ const Sidebar = () => {
     ];
 
   return (
-    <div className="flex">
+    <div className={`flex ${isFixed ? 'fixed top-0 z-50 ' : ''}`}>
     <div
       className={` ${
         open ? "w-72" : "w-20 "
@@ -47,13 +65,15 @@ const Sidebar = () => {
           <li
             key={index}
             className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-            ${Menu.gap ? "mt-9" : "mt-2"} ${
-              index === 0 && "bg-light-white"
-            } `}
+            ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"}`}
           >
-            <img src={`${Menu.src}.png`} />
-            <a href={`/${Menu.title}`} className={`${!open && "hidden"} origin-left duration-200`}>
-              {Menu.title}
+            <a href={`/${Menu.title}`} className={`${open && "hidden"} origin-left duration-200 flex items-center gap-x-4`}>
+              <img src={`${Menu.src}.png`} alt={`${Menu.title} icon`} />
+              <span className={`${!open && "hidden"}`}>{Menu.title}</span>
+            </a>
+            <a href={`/${Menu.title}`} className={`${!open && "hidden"} origin-left duration-200 flex items-center gap-x-4`}>
+              <img src={`${Menu.src}.png`} alt={`${Menu.title} icon`} />
+              <span className={`${!open && "hidden"}`}>{Menu.title}</span>
             </a>
           </li>
         ))}

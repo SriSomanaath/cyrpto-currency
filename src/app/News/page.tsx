@@ -22,14 +22,16 @@ const Page = () => {
   console.log("data of bing:", data);
 
   return (
-    <div className="bg-gray-300 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-10">
       {isLoading && <p>Loading...</p>}
-      {data?.data.map((item:any, index:any) => (
-        <div key={index} className="flex flex-col bg-white p-4 rounded-lg">
+      {data?.data.map((item: any, index: any) => (
+        <div key={index} className="flex flex-col bg-gray-400 p-4 rounded-lg flex">
           <img src={item['thumbnail']} className="w-full h-40 object-cover mb-4" alt={item['title']} />
           <h1 className="text-black text-xl font-bold mb-2">{item['title']}</h1>
           <p className="text-contentTextColor mb-4">{item['description']}</p>
-          <span className="text-white font-bold">{item['createdAt']}</span>
+          <div className="flex-grow"></div>
+          <span className="text-black font-bold">{item['createdAt']}</span>
+          <a href={item['url']} className="bg-blue-300 m-2 rounded-lg font-bold text-center">View More</a>
         </div>
       ))}
     </div>

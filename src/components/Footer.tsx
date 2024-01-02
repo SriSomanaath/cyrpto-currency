@@ -2,13 +2,12 @@ import React from 'react'
 
 import {footerLinks, socialMedia} from "@/Services/Constants";
 
-
 const Footer = () => {
   return (
-    <footer className='l bg-black sm:p-6'>
+    <footer className='l bg-black max-sm:p-6 p-10 max-sm:ml-20 ml-20'>
     <div className='flex justify-between items-start gap-20 flex-wrap max-lg:flex-col'>
       <div className='flex flex-col items-start'>
-        <h1 className="text-white text-5xl font-bold">TechArion.com</h1>
+        <h1 className="text-white text-5xl max-sm:text-4xl font-bold">TechArion.com</h1>
         <p className='mt-6 text-base leading-7 font-montserrat text-white sm:max-w-sm'>
         Empowering lives through innovative software solutions, tackling complex challenges with simplicity.
         </p>
@@ -24,16 +23,16 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className='flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap'>
+      <div className='flex flex-1 justify-between lg:gap-20 flex-wrap'>
       {footerLinks.map((section, sectionIndex) => (
       <div key={sectionIndex}>
-        <h4 className='font-montserrat text-2xl leading-normal font-medium mb-6 text-white'>
+        <h4 className='font-montserrat text-2xl leading-normal font-medium mb-6 max-sm:mt-6 sm:pl-4 text-white'>
           {section.title}
         </h4>
         <ul>
           {section.links.map((link, linkIndex) => (
                         <li
-                          className='mt-3 font-montserrat text-base leading-normal text-white hover:text-slate-gray'
+                          className='mt-3 font-montserrat text-base leading-normal text-white hover:text-slate-gray sm:pl-4'
                           key={`${link.name}-${linkIndex}`}  // Use a combination for a unique key
                         >
                           <a href={link.link}>{link.name}</a>
@@ -45,7 +44,7 @@ const Footer = () => {
       </div>
     </div>
 
-    <div className='flex justify-between text-white-400 mt-24 max-sm:flex-col max-sm:items-center'>
+    <div className='flex justify-between text-white-400 mt-24 max-sm:mt-12 max-sm:flex-col max-sm:items-center'>
       <div className='flex flex-1 justify-start items-center gap-2 font-montserrat cursor-pointer'>
         <img
           src="/copyright-sign.svg"
@@ -54,10 +53,9 @@ const Footer = () => {
           height={20}
           className='rounded-full m-0'
         />
+        <p className="text-white">Copyright. All rights reserved.</p>
       <p className='font-montserrat cursor-pointer text-white'>Terms & Conditions</p>
-        <p className="">Copyright. All rights reserved.</p>
       </div>
-      <p className='font-montserrat cursor-pointer text-white'>Terms & Conditions</p>
     </div>
   </footer>
   )

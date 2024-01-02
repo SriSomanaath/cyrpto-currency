@@ -32,19 +32,19 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className="text-bold text-6xl m-10 text-gray-700">Global Crypto Stats</h1>
+      <h1 className="font-bold text-6xl m-10 text-gray-700">Global Crypto Stats</h1>
       <div className="flex flex-row justify-around">
       {globalStats ? (
-  <div className="flex flex-col">
-    <div className="flex flex-col m-5">
-      <span>Total Cryptocurrencies</span>
-      <span>{globalStats.data.stats.total}</span>
-    </div>
-    <div className="flex flex-col m-5">
-      <span>Total Market Cap</span>
-      <span>{`$${millify(globalStats.data.stats.total24hVolume)}`}</span>
-    </div>
-  </div>
+      <div className="flex flex-col">
+        <div className="flex flex-col m-5">
+          <span>Total Cryptocurrencies</span>
+          <span>{globalStats.data.stats.total}</span>
+        </div>
+        <div className="flex flex-col m-5">
+          <span>Total Market Cap</span>
+          <span>{`$${millify(globalStats.data.stats.total24hVolume)}`}</span>
+        </div>
+      </div>
 ) : (
   <p>Loading...</p>
 )}
