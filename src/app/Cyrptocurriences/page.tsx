@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useGetCryptosQuery } from '@/Services/CryptoApi';
 import millify from 'millify';
 
-const Cryptocurrencies = ({simplified = 100}) => {
+const page = ({simplified = 100}) => {
   const count = simplified;
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
@@ -34,4 +34,4 @@ const Cryptocurrencies = ({simplified = 100}) => {
   );
 }
 
-export default Cryptocurrencies;
+export default page;
